@@ -1,1 +1,1 @@
-web: gunicorn just-in-time:app
+web: gunicorn event_handler:app
