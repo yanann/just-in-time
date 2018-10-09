@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn just-in-time:app
