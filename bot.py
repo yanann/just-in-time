@@ -1,5 +1,3 @@
-import os
-import sys
 
 from slackclient import SlackClient
 from flask import Flask, request, make_response, render_template

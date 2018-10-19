@@ -1,24 +1,22 @@
-import json
 import slackclient
 from flask import Flask, request, make_response, render_template
 
 import configuration
 import bot
-import sys
 import googlemaps
+import json
 
 JIT_bot = bot.Bot()
 slack = JIT_bot.client
 
 app = Flask(__name__)
-
-
 START = "42.365515, -71.122141"
+
 
 """
 Event handling
 ----
-eventy_type: str,  Slack event type captured
+event_type: str,  Slack event type captured
 slack_event: JSON, Information about the Slack event
 
 """
@@ -54,7 +52,7 @@ def hears():
 	if "challenge" in slack_event:
 		return make_response(slack_event["challenge"], 200, {"content_type": "application/json"})
 
-	#if event is something the bot is subcribed to, then pass event to event_type
+	#if event is something the bot is subcribed to, then pass event to event_handler
 	if "event" in slack_event:
 		event_type = slack_event["event"]["type"]
 		return _event_handler(event_type, slack_event)
@@ -63,14 +61,6 @@ def hears():
 	else:
 		return make_response("Incorrect request!", 404, {"X-Slack-No-Retry": 1})
 
-
-"""
-Default landing page for URL
-"""
-@app.route("/", methods=["GET"])
-
-def hello():
-	return "Hello world!"
 
 if __name__ == "__main__":
 	app.run()
