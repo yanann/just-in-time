@@ -9,4 +9,4 @@ Just-in-time Slack Bot allows users to ask for travel times to event locations n
 
 If there are multiple possible matches to a restaurant name, the bot will list the top 5 locations based on Google Places Autocomplete API. Users then have to type in the place they selected.
 
-![](https://github.com/yanann/just-in-time/blob/master/images/screenshot.png | width = 50)
+<img src="https://github.com/yanann/just-in-time/blob/master/images/screenshot.png" width="500">
